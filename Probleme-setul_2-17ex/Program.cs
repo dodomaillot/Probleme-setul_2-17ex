@@ -24,6 +24,10 @@ namespace Probleme_setul_2_17ex
                     case 1:
                         Exercice_1();
                         break;
+
+                    case 2:
+                        Exercice_2();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -41,6 +45,25 @@ namespace Probleme_setul_2_17ex
                     cont++;
             }
             Console.Write($"They are {cont} even number(s)");
+        }
+
+        private static void Exercice_2()
+        {
+            int n, nb, contneg = 0, contzero = 0, contpoz = 0;
+            Console.WriteLine("Write a sequence of n numbers. How many numbers are negative, equal to zero and pozitive ?");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < n; i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if (nb < 0)
+                    contneg++;
+                else if (nb == 0)
+                    contzero++;
+                else
+                    contpoz++;
+            }
+            Console.Write($"They are {contneg} negative number(s), {contzero} equal to zero and {contpoz} pozitive number(s)");
         }
     }
 }
