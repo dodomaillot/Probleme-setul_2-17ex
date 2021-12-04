@@ -36,6 +36,10 @@ namespace Probleme_setul_2_17ex
                     case 4:
                         Exercice_4();
                         break;
+
+                    case 5:
+                        Exercice_5();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -106,6 +110,24 @@ namespace Probleme_setul_2_17ex
                 Console.Write("-1");
             else
                 Console.Write(lol);
+        }
+
+        private static void Exercice_5()
+        {
+            int n, nb, tot = 0;
+            Console.WriteLine("Type a sequence of n numbers. Check how many numbers in the sequence are equal to theres positions");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+
+            for(int i = 0; i<n;i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if (nb == i)
+                    tot++;
+            }
+            if (tot == 0)
+                Console.Write("There are no numbers equal to there position");
+            else
+                Console.Write("there is/are " + tot + " numbers equals to there position");
         }
     }
 }
