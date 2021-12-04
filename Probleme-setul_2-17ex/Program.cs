@@ -15,7 +15,7 @@ namespace Probleme_setul_2_17ex
             int exercice = 1;
             while (exercice != 0)
             {
-                Console.Write("Wich exercice do you want to do ? Exercice: ");
+                Console.Write("Wich problem do you want to try ? Problem #: ");
                 exercice = int.Parse(Console.ReadLine());
                 Console.WriteLine();
 
@@ -28,6 +28,10 @@ namespace Probleme_setul_2_17ex
                     case 2:
                         Exercice_2();
                         break;
+
+                    case 3:
+                        Exercice_3();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -35,7 +39,7 @@ namespace Probleme_setul_2_17ex
         private static void Exercice_1()
         {
             int n, nb, cont = 0;
-            Console.WriteLine("Write a sequence of n numbers. How many numbers are even ?");
+            Console.WriteLine("Type a sequence of n numbers. How many numbers are even ?");
             Console.Write("n = "); n = int.Parse(Console.ReadLine());
 
             for(int i = 0; i < n; i++)
@@ -50,7 +54,7 @@ namespace Probleme_setul_2_17ex
         private static void Exercice_2()
         {
             int n, nb, contneg = 0, contzero = 0, contpoz = 0;
-            Console.WriteLine("Write a sequence of n numbers. How many numbers are negative, equal to zero and pozitive ?");
+            Console.WriteLine("Type a sequence of n numbers. How many numbers are negative, equal to zero and pozitive ?");
             Console.Write("n = "); n = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < n; i++)
@@ -65,5 +69,20 @@ namespace Probleme_setul_2_17ex
             }
             Console.Write($"They are {contneg} negative number(s), {contzero} equal to zero and {contpoz} pozitive number(s)");
         }
+        
+        private static void Exercice_3()
+        {
+            int n, sum = 1, prod = 1;
+            Console.WriteLine("Diplay the sum and the product of the numbers from 1 to n.");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+            for (int i = 2; i <= n; i++)
+            {
+                sum += i;
+                prod *= i;
+            }
+            Console.Write($"The sum is equal to {sum} and the product is equal to {prod}");
+        }
+
+        
     }
 }
