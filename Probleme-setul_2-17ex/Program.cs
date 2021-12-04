@@ -32,6 +32,10 @@ namespace Probleme_setul_2_17ex
                     case 3:
                         Exercice_3();
                         break;
+
+                    case 4:
+                        Exercice_4();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -83,6 +87,25 @@ namespace Probleme_setul_2_17ex
             Console.Write($"The sum is equal to {sum} and the product is equal to {prod}");
         }
 
-        
+        private static void Exercice_4()
+        {
+            int n, nb, a; string lol = null;
+            Console.WriteLine("Type a sequence of n numbers and a number a. The program will diplay the position(s) of the numbers a in the sequence   (Diplay -1 if there is not a number a).");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+            Console.Write("a = "); a = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < n; i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if (a == nb)
+                {
+                    lol += i.ToString() + "; ";
+                }
+            }
+            if (lol == null)
+                Console.Write("-1");
+            else
+                Console.Write(lol);
+        }
     }
 }
