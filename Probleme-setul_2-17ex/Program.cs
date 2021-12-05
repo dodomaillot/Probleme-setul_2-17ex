@@ -40,6 +40,10 @@ namespace Probleme_setul_2_17ex
                     case 5:
                         Exercice_5();
                         break;
+
+                    case 6:
+                        Exercice_6();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -128,6 +132,30 @@ namespace Probleme_setul_2_17ex
                 Console.Write("There are no numbers equal to there position");
             else
                 Console.Write("there is/are " + tot + " numbers equals to there position");
+        }
+
+        private static void Exercice_6()
+        {
+            int n, nb, prev;
+            bool ascending = true;
+            Console.WriteLine("Type a sequence of n numbers. Check if the numbers are in an ascending order");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+
+            nb = int.Parse(Console.ReadLine());
+            prev = nb; 
+            for (int i=0;i<n-1;i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if(nb < prev)
+                {
+                    ascending = false;
+                }
+                prev = nb;
+            }
+            if (ascending == false)
+                Console.Write("Numbers are not in an ascending order");
+            else
+                Console.Write("Numbers are in an ascending order");
         }
     }
 }
