@@ -49,6 +49,10 @@ namespace Probleme_setul_2_17ex
                     case 7:
                         Exercice_7();
                         break;
+
+                    case 8:
+                        Exercice_8();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -195,6 +199,30 @@ namespace Probleme_setul_2_17ex
             }
 
             Console.Write($"The bigger number is: {max} and the smaller is: {min}");
+        }
+
+        private static void Exercice_8()
+        {
+            int n, Fn_1 = 1, Fn_2 = 0, Fn = 1;
+            
+            Console.WriteLine("Display the n-th number of the Fibonacci sequence");
+            Console.Write("F_n = ? ; n = "); n = int.Parse(Console.ReadLine());
+
+            if (n == 0)
+                Console.Write(Fn_2);
+            else if (n == 1)
+                Console.Write(Fn_1);
+            else
+            {
+                for (int i = 2; i <= n; i++)
+                {
+                    Fn = Fn_1 + Fn_2;
+                    Fn_2 = Fn_1;
+                    Fn_1 = Fn;
+                }
+
+                Console.Write(Fn);
+            }
         }
     }
 }
