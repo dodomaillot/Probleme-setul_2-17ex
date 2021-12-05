@@ -53,6 +53,10 @@ namespace Probleme_setul_2_17ex
                     case 8:
                         Exercice_8();
                         break;
+
+                    case 9:
+                        Exercice_9();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -223,6 +227,35 @@ namespace Probleme_setul_2_17ex
 
                 Console.Write(Fn);
             }
+        }
+
+        private static void Exercice_9()
+        {
+            int n, nb, prev;
+            bool neg = false, poz = false;
+
+            Console.WriteLine("Check if a sequence of n numbers is monotone");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+            
+            nb = int.Parse(Console.ReadLine());
+            prev = nb;
+            for(int i = 0; i < n-1; i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if (nb > prev)
+                    poz = true;
+                else if (nb < prev)
+                    neg = true;
+
+                prev = nb;
+            }
+
+            if (poz == true && neg == false)
+                Console.Write("The sequence is monotonic increasing");
+            else if (poz == false && neg == true)
+                Console.Write("The sequence is monotonic decreasing");
+            else
+                Console.Write("The sequence has no monotone");
         }
     }
 }
