@@ -57,6 +57,10 @@ namespace Probleme_setul_2_17ex
                     case 9:
                         Exercice_9();
                         break;
+
+                    case 10:
+                        Exercice_10();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -256,6 +260,32 @@ namespace Probleme_setul_2_17ex
                 Console.Write("The sequence is monotonic decreasing");
             else
                 Console.Write("The sequence has no monotone");
+        }
+
+        private static void Exercice_10()
+        {
+            int n, nb, cons = 1, prev, maxcons = 1;
+            
+            Console.WriteLine("Type a sequence of n numbers. What is the maximum number of consecutive equal numbers");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+            nb = int.Parse(Console.ReadLine());
+            prev = nb;
+                        
+            for(int i = 0; i < n-1; i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if (nb == prev)
+                    cons++;
+                else
+                {
+                    maxcons = cons;
+                    cons = 1;
+                }
+                prev = nb;
+            }
+            if (cons > maxcons)
+                maxcons = cons;
+            Console.Write(maxcons);
         }
     }
 }
