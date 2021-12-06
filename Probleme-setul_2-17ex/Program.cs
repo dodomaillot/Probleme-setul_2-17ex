@@ -61,6 +61,10 @@ namespace Probleme_setul_2_17ex
                     case 10:
                         Exercice_10();
                         break;
+
+                    case 11:
+                        Exercice_11();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -287,5 +291,41 @@ namespace Probleme_setul_2_17ex
                 maxcons = cons;
             Console.Write(maxcons);
         }
+
+        private static void Exercice_11()
+        {
+            int n, nb, Ex, inv = 0, p = 1;
+            float sum = 0F;
+
+            Console.WriteLine("Type a sequence of n numbers. Display the sum of the inverse of the numbers");
+            Console.WriteLine("1-) ex: 12 inverse(mirror) => 21 or 2-) 12 inverse => 1/12");
+            Console.Write("1 or 2 ? "); Ex = int.Parse(Console.ReadLine());
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+
+            if(Ex == 2)
+                for (int i = 0; i < n; ++i)
+                {
+                    nb = int.Parse(Console.ReadLine());
+                    sum += 1 / (float)nb;
+                }
+            else if(Ex == 1)
+            {
+                for (int i = 0; i < n; ++i)
+                {
+                    nb = int.Parse(Console.ReadLine());
+                    while(nb != 0)
+                    {
+                        inv = inv * p + nb % 10;
+                        p *= 10;
+                        nb /= 10;
+                    }
+                    sum += (float)inv;
+                    inv = 0; p = 1;
+                }
+            }
+            Console.Write(Math.Round(sum, 2));
+        }
+
+        
     }
 }
