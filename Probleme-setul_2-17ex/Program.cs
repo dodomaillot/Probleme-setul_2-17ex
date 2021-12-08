@@ -65,6 +65,10 @@ namespace Probleme_setul_2_17ex
                     case 11:
                         Exercice_11();
                         break;
+
+                    case 12:
+                        Exercice_12();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -326,6 +330,32 @@ namespace Probleme_setul_2_17ex
             Console.Write(Math.Round(sum, 2));
         }
 
-        
+        private static void Exercice_12()
+        {
+            int n, nb, prev, sum = 0;
+            bool cons = false;
+
+            Console.WriteLine("Type a sequence of n numbers. ....");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+            
+            nb = int.Parse(Console.ReadLine());
+            prev = nb;
+
+            for(int i = 1; i<n; i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if (nb != 0 && nb - 1 == prev && cons == false)
+                {
+                    sum++;
+                    cons = true;
+                }
+                else if (nb != 0 && nb - 1 != prev && cons == true)
+                    sum--;
+                else if (nb == 0 || nb <= prev)
+                    cons = false;
+                prev = nb;
+            }
+            Console.Write(sum);
+        }
     }
 }
