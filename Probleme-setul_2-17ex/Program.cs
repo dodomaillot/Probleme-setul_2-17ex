@@ -69,6 +69,10 @@ namespace Probleme_setul_2_17ex
                     case 12:
                         Exercice_12();
                         break;
+
+                    case 13:
+                        Exercice_13();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -335,7 +339,7 @@ namespace Probleme_setul_2_17ex
             int n, nb, prev, sum = 0;
             bool cons = false;
 
-            Console.WriteLine("Type a sequence of n numbers. ....");
+            Console.WriteLine("Type a sequence of n numbers. How many consecutive numbers grups different from 0 are in the sequence");
             Console.Write("n = "); n = int.Parse(Console.ReadLine());
             
             nb = int.Parse(Console.ReadLine());
@@ -355,7 +359,38 @@ namespace Probleme_setul_2_17ex
                     cons = false;
                 prev = nb;
             }
-            Console.Write(sum);
+
+            if (sum == 0)
+                Console.Write($"There is no grup of consecutive numbers");
+            else
+                Console.Write($"There are/is {sum} grups of consecutive numbers");
+        }
+
+        private static void Exercice_13()
+        {
+            int n, nb, prev, first;
+            bool chance = false, isrot = true;
+
+            Console.WriteLine("Type a sequence of n numbers. ");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+            nb = int.Parse(Console.ReadLine());
+            prev = first = nb;
+
+            for(int i = 1; i < n; i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if (nb < prev && chance == false)
+                    chance = true;
+                else if (nb < prev && chance == true)
+                    isrot = false;
+                if (first < nb && i + 1 == n && chance == true)
+                    isrot = false;
+                prev = nb;
+            }
+            if (isrot == true)
+                Console.Write("It is");
+            else
+                Console.Write("It is not");
         }
     }
 }
