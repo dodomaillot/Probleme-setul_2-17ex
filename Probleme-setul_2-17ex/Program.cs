@@ -73,6 +73,10 @@ namespace Probleme_setul_2_17ex
                     case 13:
                         Exercice_13();
                         break;
+
+                    case 14:
+                        Exercice_14();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -391,6 +395,40 @@ namespace Probleme_setul_2_17ex
                 Console.Write("It is");
             else
                 Console.Write("It is not");
+        }
+
+        private static void Exercice_14()
+        {
+            int n, nb, prev, first;
+            bool chance = false, isrot = true, asc = false, desc =false;
+
+            Console.WriteLine("Type a sequence of n numbers. ");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+            
+            nb = int.Parse(Console.ReadLine());
+            prev = first = nb;
+            for (int i = 1; i < n; i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if (asc == true && desc == true)
+                    isrot = false;
+                if (nb > prev)
+                    asc = true;
+                else if (nb < prev)
+                    desc = true;
+                if ((nb < prev && asc == true && chance == false) || (nb > prev && desc == true && chance == false))
+                    chance = true;
+                else if ((nb < prev && asc == true && chance == true && desc == false) || (nb > prev && desc == true && chance == false && asc == false))
+                    isrot = false;
+                if ((first < nb && i + 1 == n && asc == true && chance == true && desc == false) || (first > nb && i + 1 == n && desc == true && chance == true && asc == false))
+                    isrot = false;
+                prev = nb;
+            }
+            if (isrot == true)
+                Console.Write("It is");
+            else
+                Console.Write("It is not");
+
         }
     }
 }
