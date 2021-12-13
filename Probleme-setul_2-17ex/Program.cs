@@ -77,6 +77,10 @@ namespace Probleme_setul_2_17ex
                     case 14:
                         Exercice_14();
                         break;
+
+                    case 15:
+                        Exercice_15();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -375,7 +379,8 @@ namespace Probleme_setul_2_17ex
             int n, nb, prev, first;
             bool chance = false, isrot = true;
 
-            Console.WriteLine("Type a sequence of n numbers. ");
+            Console.WriteLine("Type a sequence of n numbers. Check if the sequence is a rotating ascending sequence");
+            Console.WriteLine("Exemple: n = 5; {2,3,4,5,1} can be {1,2,3,4,5} because 2->3->4->5 and 1 come infront of 2");
             Console.Write("n = "); n = int.Parse(Console.ReadLine());
             nb = int.Parse(Console.ReadLine());
             prev = first = nb;
@@ -402,11 +407,13 @@ namespace Probleme_setul_2_17ex
             int n, nb, prev, first;
             bool chance = false, isrot = true, asc = false, desc =false;
 
-            Console.WriteLine("Type a sequence of n numbers. ");
+            Console.WriteLine("Type a sequence of n numbers. Check if the sequence is a rotating monotone(ascending or descending) sequence");
+            Console.WriteLine("Exemple: n = 5; {2,3,4,5,1} can be {1,2,3,4,5} because 2->3->4->5 and 1 come infront of 2 or {4,3,2,1,5} to {5,4,3,2,1}");
             Console.Write("n = "); n = int.Parse(Console.ReadLine());
             
             nb = int.Parse(Console.ReadLine());
             prev = first = nb;
+
             for (int i = 1; i < n; i++)
             {
                 nb = int.Parse(Console.ReadLine());
@@ -428,7 +435,33 @@ namespace Probleme_setul_2_17ex
                 Console.Write("It is");
             else
                 Console.Write("It is not");
+        }
 
+        private static void Exercice_15()
+        {
+            int n, nb, prev;
+            bool change = false, bitonic = true;
+            Console.WriteLine("Type a sequence of n numbers. Check if the sequence is a ");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+
+            nb = int.Parse(Console.ReadLine());
+            prev = nb;
+
+            for (int i = 1; i < n; i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+
+                if (nb < prev)
+                    change = true;
+                else if (change == true && nb > prev)
+                    bitonic = false;
+                prev = nb;
+            }
+            
+            if (bitonic == false || change == false)
+                Console.Write("it is not");
+            else
+                Console.Write("it is");
         }
     }
 }
