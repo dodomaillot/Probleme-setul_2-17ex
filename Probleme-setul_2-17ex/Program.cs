@@ -81,6 +81,10 @@ namespace Probleme_setul_2_17ex
                     case 15:
                         Exercice_15();
                         break;
+
+                    case 16:
+                        Exercice_16();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -214,9 +218,9 @@ namespace Probleme_setul_2_17ex
             
             Console.WriteLine("Type a sequence of n numbers. Display the bigger and the smaller value of the sequence");
             Console.Write("n = "); n = int.Parse(Console.ReadLine());
-            
             nb = int.Parse(Console.ReadLine());
             min = max = nb;
+            
             for(int i = 0; i<n-1;i++)
             {
                 nb = int.Parse(Console.ReadLine());
@@ -462,6 +466,60 @@ namespace Probleme_setul_2_17ex
                 Console.Write("it is not");
             else
                 Console.Write("it is");
+        }
+
+        private static void Exercice_16()
+        {
+            int n, nb, prev, first, firstbit = 0;
+            bool change = false, change2 = false, isrot = true, cresc = false, desc = false;
+
+            Console.WriteLine("Type a sequence of n numbers. Check if the sequence is a rotating ascending sequence");
+            Console.WriteLine("Exemple: n = 5; {2,3,4,5,1} can be {1,2,3,4,5} because 2->3->4->5 and 1 come infront of 2");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+            nb = int.Parse(Console.ReadLine());
+            prev = first = nb;
+
+            for (int i = 1; i < n; i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if (nb < prev && change == false)
+                    change = true;
+                else if (nb > prev && change == true && cresc == false)
+                    cresc = true;
+                else if (nb < prev && change == true && desc == false)
+                    desc = true;
+                if (nb < prev && change == false)
+                    change = true;
+                if (desc == true && cresc == true && change2 == false && change == true)
+                {
+                    if (nb < prev)
+                    {
+                        change2 = true;
+                        cresc = false;
+                    }
+                    else if (nb > prev)
+                    {
+                        change2 = true;
+                        desc = false;
+                    }
+                    firstbit = prev;
+                    Console.Write("lol");
+                }
+                if (change2 == true && cresc == true && i + 1 == n && nb > first || change2 == true && nb == first && nb < firstbit && cresc == true)
+                    isrot = false;
+                else if (change2 == true && desc == true && i + 1 == n && nb < first || change2 == true && nb == first && nb > firstbit && desc == true)
+                    isrot = false;
+                else if (change == true && i + 1 == n && nb > prev && nb > first)
+                    isrot = false;
+
+                if (desc == true && cresc == true && change2 == true)
+                    isrot = false;
+                prev = nb;
+            }
+            if (isrot == false || change == false)
+                Console.Write("It is not");
+            else
+                Console.Write("It is");
         }
     }
 }
