@@ -503,7 +503,6 @@ namespace Probleme_setul_2_17ex
                         desc = false;
                     }
                     firstbit = prev;
-                    Console.Write("lol");
                 }
                 if (change2 == true && cresc == true && i + 1 == n && nb > first || change2 == true && nb == first && nb < firstbit && cresc == true)
                     isrot = false;
