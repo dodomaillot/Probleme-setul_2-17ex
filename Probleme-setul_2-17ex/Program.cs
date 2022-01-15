@@ -85,6 +85,10 @@ namespace Probleme_setul_2_17ex
                     case 16:
                         Exercice_16();
                         break;
+
+                    case 17:
+                        Exercice_17();
+                        break;
                 }
                 Console.WriteLine(); Console.WriteLine();
             }
@@ -445,7 +449,7 @@ namespace Probleme_setul_2_17ex
         {
             int n, nb, prev;
             bool change = false, bitonic = true;
-            Console.WriteLine("Type a sequence of n numbers. Check if the sequence is a ");
+            Console.WriteLine("Type a sequence of n numbers. Check if the sequence is a .... sequence");
             Console.Write("n = "); n = int.Parse(Console.ReadLine());
 
             nb = int.Parse(Console.ReadLine());
@@ -473,7 +477,7 @@ namespace Probleme_setul_2_17ex
             int n, nb, prev, first, firstbit = 0;
             bool change = false, change2 = false, isrot = true, cresc = false, desc = false;
 
-            Console.WriteLine("Type a sequence of n numbers. Check if the sequence is a rotating ascending sequence");
+            Console.WriteLine("Type a sequence of n numbers. Check if the sequence is a rotating ..... sequence");
             Console.WriteLine("Exemple: n = 5; {2,3,4,5,1} can be {1,2,3,4,5} because 2->3->4->5 and 1 come infront of 2");
             Console.Write("n = "); n = int.Parse(Console.ReadLine());
             nb = int.Parse(Console.ReadLine());
@@ -519,6 +523,47 @@ namespace Probleme_setul_2_17ex
                 Console.Write("It is not");
             else
                 Console.Write("It is");
+        }
+
+        private static void Exercice_17()
+        {
+            int n, nb, sum0part1 = 0, sum1part1 = 0, sum0part2 = 0, sum1part2 = 0, first;
+            bool iscorect = false, prob = false;
+
+            Console.WriteLine("Type a sequence of n numbers. Check if");
+            Console.WriteLine("Exemple: n = 5; {2,3,4,5,1} can be {1,2,3,4,5} because 2->3->4->5 and 1 come infront of 2");
+            Console.Write("n = "); n = int.Parse(Console.ReadLine());
+            nb = int.Parse(Console.ReadLine());
+            first = nb;
+
+            if (nb == 0)
+                sum0part1++;
+            else if (nb == 1)
+                sum1part1++;
+
+            for (int i = 1; i < n; i++)
+            {
+                nb = int.Parse(Console.ReadLine());
+                if (nb == 0 && i < n / 2)
+                    sum0part1++;
+                else if (nb == 0 && i > n / 2)
+                    sum0part2++;
+                else if (nb == 1 && i < n / 2)
+                    sum1part1++;
+                else if (nb == 1 && i > n / 2)
+                    sum1part2++;
+                if (sum0part1 < sum1part1)
+                    prob = true;
+            }
+            if (sum0part1 == sum1part2 && sum0part1 >= sum1part1 && first != 1 && nb != 0 && prob == false)
+                iscorect = true;
+            if (n % 2 != 0)
+                iscorect = false;
+
+            if (iscorect == true)
+                Console.Write("The sequence is corect");
+            else
+                Console.Write("The sequence is not corect");
         }
     }
 }
